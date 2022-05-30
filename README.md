@@ -80,3 +80,6 @@ nest g controller tasks
 
 # Generate Service
 nest g service tasks
+
+# DB Modules and ORM
+npm install typeorm @nestjs/typeorm pg
