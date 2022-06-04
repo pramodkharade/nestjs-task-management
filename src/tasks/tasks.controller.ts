@@ -18,16 +18,23 @@ import { updateTaskstatusDto } from './dto/update-task-status.dto';
 import { TaskStatus } from './task-status.enum';
 import { Task } from './task.entity';
 import { TasksService } from './tasks.service';
+import { Logger } from '@nestjs/common';
 
 @Controller('tasks')
 @UseGuards(AuthGuard())
 export class TasksController {
+  private logger = new Logger('TaskController');
   constructor(private tasksService: TasksService) {}
   @Get()
   getTasks(
     @Query() filterDto: GetTasksFilterDTO,
     @GetUser() user: User,
   ): Promise<Task[]> {
+    this.logger.verbose(
+      `User ${user.username} retriveing tasks. Filter is ${JSON.stringify(
+        filterDto,
+      )}`,
+    );
     return this.tasksService.getAllTasks(filterDto, user);
   }
 
