@@ -29,6 +29,7 @@
     "@nestjs/typeorm": "^8.0.4",
     "@nestjsi/class-validator": "^0.1.4",
     "@types/bcrypt": "^5.0.0",
+    "@types/passport-jwt": "^3.0.6",
     "@types/uuid": "^8.3.4",
     "bcrypt": "^5.0.1",
     "class-transformer": "^0.5.1",
